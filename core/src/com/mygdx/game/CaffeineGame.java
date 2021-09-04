@@ -11,47 +11,43 @@ public class CaffeineGame extends ApplicationAdapter {
 	SpriteBatch batch;
 	Texture milkJugImage;
 	private OrthographicCamera camera;
-	private Rectangle milkJug;
-	
+	Texture img;
+	MilkJug milkJug;
+
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
-		milkJugImage = new Texture("tempjug.png");
+		img = new Texture("milkJug.png");
+		milkJug = new MilkJug(img,700, 100, 64, 64);
 		camera = new OrthographicCamera();
-		camera.setToOrtho(false, 1000,500);
-
-		milkJug = new Rectangle();
-		milkJug.x = 600;
-		milkJug.y = 90;
-		milkJug.width = 64;
-		milkJug.height = 64;
-
+		camera.setToOrtho(false,1000,500);
 	}
 
 	@Override
 	public void render () {
+		ScreenUtils.clear(1, 0, 0, 1);
+		batch.setProjectionMatrix(camera.combined);
 		ScreenUtils.clear(.5f, 0.2f, 0.9f, 1);
 		camera.update();
 
 		batch.setProjectionMatrix(camera.combined);
 		batch.begin();
-		batch.draw(milkJugImage,
-				milkJug.x,
-				milkJug.y,
-				milkJug.x,
-				milkJug.y,
-				milkJug.width,
-				milkJug.height,
-				1f,
-				1f,
-				0f,
-				0,
-				0,
-				64,
-				64,
-				false,
-				false
-				);
+		batch.draw(milkJug.jugImg,
+		milkJug.posX,
+		milkJug.posY,
+		milkJug.width/2,
+		milkJug.height/2,
+		milkJug.width,
+		milkJug.height,
+		1f,
+		1f,
+		100f,
+		0,
+		0,
+		1000,
+		1000,
+		false,
+		false);
 		batch.end();
 
 	}
