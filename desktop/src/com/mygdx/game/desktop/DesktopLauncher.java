@@ -10,6 +10,7 @@ public class DesktopLauncher {
 		config.title = "Caffeine 100%";
 		config.height = 500;
 		config.width = 1000;
+
 		new LwjglApplication(new CaffeineGame(), config);
 	}
 }

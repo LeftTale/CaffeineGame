@@ -1,22 +1,16 @@
 package com.mygdx.game;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.math.Rectangle;
 
-public class MilkJug
+public class MilkJug extends Item
 {
-    Texture jugImg;
-    float posX;
-    float posY;
-    float width;
-    float height;
-    float rotation;
 
-    MilkJug(Texture jugImg,float posX, float posY, float width, float height)
+    MilkJug(Texture jugImg,float posX, float posY, float width, float height, float rotation)
     {
-        this.jugImg = jugImg;
-        this.posX = posX;
-        this.posY = posY;
-        this.width = width;
-        this.height = height;
+        super(posX,posY,width,height,jugImg,rotation);
     }
+
+
 }
