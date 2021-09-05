@@ -14,13 +14,13 @@ public class CaffeineGame extends ApplicationAdapter {
 	SpriteBatch batch;
 	Texture milkJugImage;
 	private OrthographicCamera camera;
-	MilkJug milkJug;
+	Item milkJug;
 
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
 		milkJugImage = new Texture("tempjug.png");
-		milkJug = new MilkJug(milkJugImage,700, 100, 64, 64, 0);
+		milkJug = new Item(700, 100, 64, 64, milkJugImage,0);
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false,1000,500);
 	}
@@ -68,7 +68,7 @@ public class CaffeineGame extends ApplicationAdapter {
 
 	public void HandleGraphics()
 	{
-		milkJug.DrawItem(batch);
+
 	}
 
 
